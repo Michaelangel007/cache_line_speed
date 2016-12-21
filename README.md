@@ -1,9 +1,13 @@
 # Cache Line Speed: Row vs Col memory access
 
-Sum array of 1,073,741,824 elements = 576,460,751,766,552,576.
+Let's allocate an 32-bit array of 1,073,741,824 elements for a total size of 4GB.
 
-Sum 1+2+3+...+n = n*(n+1)/2
-Sum of 0+1+2+...+n-1 = (n-1)*n/2 
+We'll fill this array from 0,1,2,...n-1 and then sum it.
+
+    Sum 1+2+3+...+n = n*(n+1)/2
+    Sum of 0+1+2+...+n-1 = (n-1)*n/2
+
+Sum array of 1,073,741,824 elements = 576,460,751,766,552,576.
 
 |i +=|Bytes|Op/s   |Time     |
 |---:|----:|------:|--------:|
