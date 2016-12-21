@@ -1,0 +1,14 @@
+#!/bin/sh
+
+bin/col    1
+bin/col    2
+bin/col    4
+bin/col    8
+bin/col   16
+bin/col   32
+bin/col   64
+bin/col  128
+bin/col  256
+bin/col  512
+bin/col 1024
+
