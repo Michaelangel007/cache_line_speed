@@ -6,7 +6,7 @@ int main( const int nArg, const char *aArg[] )
 
     if( nArg > 1 )
         STRIDE = atoi( aArg[ 1 ] );
-    printf( "Stride: %lu\n", STRIDE );
+    printf( "Stride: [%lu] @ %lu bytes\n", STRIDE, ELEM*STRIDE );
 
     Startup();
     gTimer.Start();

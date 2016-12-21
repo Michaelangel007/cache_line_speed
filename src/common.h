@@ -2,7 +2,9 @@
 //#include <string.h> // 
 #include <stdlib.h> // atoi
 #include <stdint.h> // uint8_t, uint32_t
-#include "timer.h"
+
+#include "timer.h"     // Timer
+#include "util_text.h" // itoa_comma
 
 const size_t K    = 1024;
 const size_t LEN  = K*K*K; // 1 GB = 1K * 1MB = 1K * 1K * 1K
@@ -28,13 +30,17 @@ void Shutdown()
 {
     gTimer.Throughput( LEN );
  
-    if( gnSum != 576460751766552576ull )
-        printf( "ERROR: Checksum failure!\n" );
    
-    printf( "Len: %llu\n", (long long unsigned int)   LEN );
-    printf( "int: %llu\n", (long long unsigned int)  ELEM );
-    printf( "Mem: %llu\n", (long long unsigned int)  SIZE );
-    printf( "Sum= %llu\n", (long long unsigned int) gnSum );
+    printf( "Len: %s\n", itoa_comma( (long long unsigned int)   LEN ) );
+    printf( "int: %s\n", itoa_comma( (long long unsigned int)  ELEM ) );
+    printf( "Mem: %s\n", itoa_comma( (long long unsigned int)  SIZE ) );
+    printf( "Sum= %s  ", itoa_comma( (long long unsigned int) gnSum ) );
+
+    printf( "%s\n", 
+        (gnSum != 576460751766552576ull)
+        ? "FAIL. ERROR: Checksum failure!"
+        : "pass"
+    );
 
     printf( "%d %c cells/s %.f seconds = %s%s\n"
         , (int)gTimer.throughput.per_sec, gTimer.throughput.prefix
@@ -42,6 +48,8 @@ void Shutdown()
         , gTimer.day
         , gTimer.hms
     );
+
+    printf( "\n" );
 
     delete [] gpData;
 }

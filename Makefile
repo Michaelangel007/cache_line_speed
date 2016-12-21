@@ -7,7 +7,7 @@ clean:
 CC=g++
 C_FLAGS=-O2 -Wall -Wextra -Isrc
 
-INC=src/timer.h src/common.h
+INC=src/timer.h src/common.h src/util_text.h
 
 bin/row: src/row.cpp $(INC)
 	mkdir -p bin
