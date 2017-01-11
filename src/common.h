@@ -4,7 +4,7 @@
 #include <stdint.h> // uint8_t, uint32_t
 
 #include "timer.h"     // Timer
-#include "util_text.h" // itoa_comma
+#include "util_itoa.h" // itoa_comma
 
 const size_t K    = 1024;
 const size_t LEN  = K*K*K; // 1 GB = 1K * 1MB = 1K * 1K * 1K
